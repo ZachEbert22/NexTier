@@ -46,11 +46,25 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { HighchartsChartComponent } from 'highcharts-angular';
+import { ChartsComponent } from './charts/charts.component';
+import { TestComponent } from './test/test.component';
+import { ChartModule } from 'angular-highcharts';
+import { ChildComponent } from './child/child.component';
+import { CardComponent } from './card/card.component';
+import { ZoomComponent } from './zoom/zoom.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
+    ChartsComponent,
+    TestComponent,
+    ChildComponent,
+    CardComponent,
+    ZoomComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +113,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HighchartsChartModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

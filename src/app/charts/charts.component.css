@@ -1,0 +1,10 @@
+#container {
+    height: 400px;
+    min-width: 310px;
+}
+
+.charts{
+    display: flex;
+    flex: 1;
+    box-shadow: gray;
+}

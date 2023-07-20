@@ -1,0 +1,16 @@
+{"uuid":"d5e68074-c184-4467-a830-df2535d2ec60",
+"userHost":"::1",
+"userAgent":"PDS WITSMLstudio Client",
+"username":"",
+"function":"UpdateInStore",
+"objectType":"log",
+"uri":"eml://witsml14/well(1H)/wellbore(39)/log(User_Actions)",
+"executionDateTime":"2022-11-20T14:36:28.7560778Z",
+"objectMetadata":{"uidWell":"1H","uidWellbore":"39","uid":"User_Actions"},
+"payload":{"mnemonics":["Time Stamp","Description","Device_Name","Direction","IP_Address","Source","User_ID"],
+"units":["s","unitless","unitless","unitless","unitless","unitless","unitless"],
+"data":[{"index":"2022-11-20T14:35:54.3387022+00:00",
+"values":["User Clicked 'GearUp' Button","---","To Device",null,"LIME Pumper Interface",null]
+}]
+}
+}
