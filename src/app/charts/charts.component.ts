@@ -19,18 +19,146 @@ export class ChartsComponent {
       type: 'line'
     },
       title: {
-        text: 'Patients'
+        text: 'Gas Prices Per Year'
       },
     credits: {
       enabled: false
     },
-    series: [
+    xAxis : {
+      categories: ['2012', '2013', '2014', '2015', '2016', '2017',
+              '2018', '2019', '2020', '2021', '2022', '2023'],
+      crosshair: true
+   },
+   yAxis : [
+      { // Tertiary yAxis
+         gridLineWidth: 0,
+         title: {
+            text: 'Dollars',
+        
+         },
+         labels: {
+            format: '{value} $',
+         },
+         opposite:true  
+      }
+   ],
+   tooltip: {
+      shared: true
+   },
+   legend: {
+      enabled:true
+   },
+   series : [
       {
-        name: 'Patients Admitted',
-        data: [10, 2, 3, 6, 9, 17, 20, 10, 5, 2, 16]
-      } as any
-    ]
+         name: 'National',
+         type: 'spline',
+        // yAxis: 1,
+         data: [3.44, 3.391, 3.392, 2.208, 2.057, 2.458, 2.671, 2.338,
+                 2.636, 2.420, 3.413, 3.445],
+
+         tooltip: {
+            valueSuffix: ' $'
+         },
+         dashStyle: 'ShortDot',
+      }, 
+      {
+         name: 'Texas',
+         type: 'spline',
+         //yAxis: 2,
+         data: [3.12, 3.17, 3.13, 2.00, 1.75, 2.156, 2.28, 1.88,
+                  2.27, 1.89, 2.89, 2.841],
+         marker: {
+            enabled: false
+         },
+         dashStyle: 'ShortDot',
+         tooltip: {
+            valueSuffix: ' $'
+         }
+      },
+      {
+         name: 'California',
+         type: 'spline',
+         data: [3.75, 3.68, 3.67, 2.596, 2.82, 2.85, 3.27, 3.23, 3.49, 3.26, 4.58, 4.37],
+         tooltip: {
+            valueSuffix: ' $'
+         }
+      }
+   ]
   });
+
+
+  outlierChart=new Chart({
+   chart: {
+     type: 'outlier'
+   },
+     title: {
+       text: 'Temperature In July'
+     },
+   credits: {
+     enabled: false
+   },
+   xAxis : {
+     categories: ['13th', '14th', '15th', '16th', '17th', '18th',
+             '19th', '20th', '21st', '22nd', '23rd', '24th'],
+     crosshair: true
+  },
+  yAxis : [
+     { // Tertiary yAxis
+        gridLineWidth: 0,
+        
+        labels: {
+           format: '{value} \xB0F',
+        },
+        opposite:true , 
+        title: {
+         text: 'Temperature',
+     
+      },
+     }
+  ],
+  tooltip: {
+     shared: true
+  },
+  legend: {
+     enabled:true
+  },
+  series : [
+     {
+        name: 'Houston',
+        type: 'spline',
+       // yAxis: 1,
+        data: [98.9, 98.6, 98.9, 100, 100.4, 98.6, 100.4, 98.6,
+                99.0, 100.4, 98.6, 96.8],
+
+        tooltip: {
+           valueSuffix: ' \xB0F'
+        },
+        dashStyle: 'ShortDot',
+     }, 
+     {
+        name: 'Seattle',
+        type: 'spline',
+        //yAxis: 2,
+        data: [81, 84, 86, 81, 75, 79, 84, 82,
+                 77, 79, 82, 67],
+        marker: {
+           enabled: false
+        },
+        dashStyle: 'ShortDot',
+        tooltip: {
+           valueSuffix: '\xB0F'
+        }
+     },
+     {
+        name: 'Buffalo',
+        type: 'spline',
+        data: [77, 82, 86, 77, 81, 79, 81, 84, 77, 79, 81, 79],
+        tooltip: {
+           valueSuffix: '\xB0F'
+        }
+     }
+  ]
+ });
   chart: any;
 
   // add point to chart serie
@@ -43,7 +171,7 @@ export class ChartsComponent {
       type: 'double'
    },
    title : {
-      text: 'Source: WorldClimate.com'   
+      text: 'World Climate'   
    },   
    subtitle : {
       text: 'Rainforest'
@@ -129,5 +257,7 @@ export class ChartsComponent {
       }
    ]
 }
-  )}
+  )
+
+}
  

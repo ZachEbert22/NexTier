@@ -38,7 +38,7 @@ export class ZoomComponent {
       
     },
       title: {
-        text: 'Pressure History'
+        text: 'Flow Rate'
         
       },
       subtitle : {
@@ -64,11 +64,77 @@ export class ZoomComponent {
    yAxis : {
    
    title: {
-      text: 'Discharge',
+      text: 'Barrels/Minute',
   
    },
    zoomEnabled: true,
      min: 0,
+   labels: {
+    format: '{value} bpm',
+    
+ },
+   opposite: false
+   },
+   tooltip: {
+    shared: true
+ },
+ legend: {
+      enabled:false
+   },
+   
+    series: [
+      {
+        name: 'Discharge',
+        data: [69, 92, 100, 110, 130, 95, 97, 6, 120, 110, 85, 89],
+        dashStyle: 'ShortDot',
+        tooltip: {
+          valueSuffix: ' bpm'
+       },
+       labels: {
+        format: '{value} PM',
+     },
+      } as any
+    ]
+  });
+
+
+  lineChart2=new Chart({
+    chart: {
+      type: 'line',
+      zooming: {
+        mouseWheel: true
+      }
+      
+    },
+      title: {
+        text: 'Pressure History'
+      },
+      subtitle : {
+        text: 'Last 12 Hours'
+     },
+    credits: {
+      enabled: false
+    },
+    xAxis : {
+      categories: ['12:00', '1:00', '2:00', '3:00', '4:00', '5:00',
+              '6:00', '7:00', '8:00', '9:00', '10:00', '11:00'],
+      crosshair: true,
+      title: {
+        text: 'Time (EST)',
+    
+     },
+     zoomEnabled: true,
+     labels: {
+      format: '{value} PM',
+   },
+   },
+   yAxis : {
+   
+   title: {
+      text: 'Discharge',
+  
+   },
+   zoomEnabled: true,
    labels: {
     format: '{value} psi',
     
@@ -96,16 +162,83 @@ export class ZoomComponent {
       } as any
     ]
   });
+
+
+  lineChart3=new Chart({
+    chart: {
+      type: 'line',
+      zooming: {
+        mouseWheel: true
+      }
+      
+    },
+      title: {
+        text: 'Concentration'
+      },
+      subtitle : {
+        text: 'Last 12 Hours'
+     },
+    credits: {
+      enabled: false
+    },
+    xAxis : {
+      categories: ['12:00', '1:00', '2:00', '3:00', '4:00', '5:00',
+              '6:00', '7:00', '8:00', '9:00', '10:00', '11:00'],
+      crosshair: true,
+      title: {
+        text: 'Time (EST)',
+    
+     },
+     zoomEnabled: true,
+     labels: {
+      format: '{value} PM',
+   },
+   },
+   yAxis : {
+   
+   title: {
+      text: 'Pounds Per Gallon',
+  
+   },
+   zoomEnabled: true,
+   labels: {
+    format: '{value} lbs/gal',
+    
+ },
+   opposite: false
+   },
+   tooltip: {
+    shared: true
+ },
+ legend: {
+      enabled:false
+   },
+   
+    series: [
+      {
+        name: 'Weight',
+        data: [11.9, 12.4, 12.1, 12.9, 13.1, 13.0, 11.8, 12.5, 12.4, 12.6, 12.7, 12.8],
+        dashStyle: 'ShortDot',
+        tooltip: {
+          valueSuffix: 'psi'
+       },
+       labels: {
+        format: '{value} PM',
+     },
+      } as any
+    ]
+  });
 }
 
 Highcharts.setOptions({
   title: {
     style: {
-      color: 'blue'
+      color: 'Green'
+      
     }
   },
   chart: {
-    type: 'line',
+    
     zooming: {
       type: 'xy'
     },
