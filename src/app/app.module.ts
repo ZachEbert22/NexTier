@@ -54,6 +54,7 @@ import { ChartModule } from 'angular-highcharts';
 import { ChildComponent } from './child/child.component';
 import { CardComponent } from './card/card.component';
 import { ZoomComponent } from './zoom/zoom.component';
+import { FormsComponent } from './forms/forms.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { ZoomComponent } from './zoom/zoom.component';
     TestComponent,
     ChildComponent,
     CardComponent,
-    ZoomComponent
+    ZoomComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
