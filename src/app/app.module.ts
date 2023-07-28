@@ -49,12 +49,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { ChartsComponent } from './charts/charts.component';
-import { TestComponent } from './test/test.component';
 import { ChartModule } from 'angular-highcharts';
-import { ChildComponent } from './child/child.component';
 import { CardComponent } from './card/card.component';
 import { ZoomComponent } from './zoom/zoom.component';
 import { FormsComponent } from './forms/forms.component';
+import { ChartChildComponent } from './chart-child/chart-child.component';
+import { FormChildComponent } from './form-child/form-child.component';
 
 
 @NgModule({
@@ -62,11 +62,11 @@ import { FormsComponent } from './forms/forms.component';
     AppComponent,
     NavBarComponent,
     ChartsComponent,
-    TestComponent,
-    ChildComponent,
     CardComponent,
     ZoomComponent,
-    FormsComponent
+    FormsComponent,
+    ChartChildComponent,
+    FormChildComponent
   ],
   imports: [
     BrowserModule,
