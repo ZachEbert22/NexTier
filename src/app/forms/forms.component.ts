@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {NgFor} from '@angular/common'
 import { CdkDrag, CdkDragHandle, CdkDragDrop, CdkDropList, CdkDropListGroup,moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Chart } from 'angular-highcharts';
@@ -23,9 +23,16 @@ imports: [
 
 
 export class FormsComponent {
-  todo = ['Chicago', 'Los Angeles', 'Phoenix', 'Philadelphia'];
+  @Output() newItemEvent = new EventEmitter<string>();
 
-  done = ['Houston', 'National', 'New York City'];
+  addNewItem(value:string){
+    this.newItemEvent.emit(value);
+  }
+
+  possible = ['Chicago', 'Los Angeles', 'Phoenix', 'Philadelphia'];
+
+  selected = ['Houston', 'National', 'New York City'];
+currentItem: any;
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -90,7 +97,7 @@ export class FormsComponent {
    
     series: [
       {
-        name: this.done[0],
+        name: "National",
         type: 'spline',
        // yAxis: 1,
         data: [3.44, 3.391, 3.392, 2.208, 2.057, 2.458, 2.671, 2.338,
@@ -99,14 +106,16 @@ export class FormsComponent {
         tooltip: {
            valueSuffix: ' $'
         },
+        marker: {
+          enabled: false
+        },
         dashStyle: 'ShortDot',
      }, 
      {
-        name: this.done[1],
+        name: "Houston",
         type: 'spline',
         //yAxis: 2,
-        data: [3.12, 3.17, 3.13, 2.00, 1.75, 2.156, 2.28, 1.88,
-                 2.27, 1.89, 2.89, 2.841],
+        data: [3.76, 2.97, 3.47, 3.95, 5.01, 6.00, 3.77, 4.84, 4.71, 5.46, 3.87, 4.03],
         marker: {
            enabled: false
         },
@@ -116,15 +125,96 @@ export class FormsComponent {
         }
      },
      {
-        name: this.done[2],
+        name: "New York City",
         type: 'spline',
-        data: [3.75, 3.68, 3.67, 2.596, 2.82, 2.85, 3.27, 3.23, 3.49, 3.26, 4.58, 4.37],
+        data: [2.53, 6.87, 4.61, 1.39, 4.15, 4.40, 3.20, 1.76, 2.81, 6.48, 2.03, 5.02],
         tooltip: {
            valueSuffix: ' $'
-        }
-     } as any
+        },
+        marker: {
+          enabled: false
+        },
+     },
+     {
+      name: "Chicago",
+      type: 'spline',
+      data: [2, 2, 2.4, 3.7, 4.5, 4.1, 3.7, 4.3, 3.1, 3.3, 2.4, 2.2],
+      tooltip: {
+         valueSuffix: ' $'
+        },
+        marker: {
+          enabled: false
+        },
+      },
+      {
+        name: "Los Angeles",
+        type: 'spline',
+        data: [3.5, 3.8, 2.3, .9, .4, .1, .1, .1, .2, .5, 1.1, 2.6],
+        tooltip: {
+          valueSuffix: ' $'
+        },
+        marker: {
+          enabled: false
+        },
+      }, 
+      {
+        name: "Phoenix",
+        type: 'spline',
+        data: [.83, .77, 1.07, .25, .16, .09, .99, .94, .75, .79, .73, .92],
+        tooltip: {
+          valueSuffix: ' $'
+        },
+        marker: {
+          enabled: false
+        },
+      },
+      {
+        name: "Philadelphia",
+        type: 'spline',
+        data: [3.7, 3, 4.4, 3.8, 3.5, 4.2, 4.9, 5, 4.2, 4.3, 3.3, 4.5],
+        tooltip: {
+          valueSuffix: ' $'
+        },
+        marker: {
+          enabled: false
+        },
+      } as any
     ]
   });
 
+  chartData = [
+      {
+        name: "National",
+        data: [3.44, 3.391, 3.392, 2.208, 2.057, 2.458, 2.671, 2.338,
+                2.636, 2.420, 3.413, 3.445],
+    }, 
+    {
+        name: "Houston",
 
+        data: [3.76, 2.97, 3.47, 3.95, 5.01, 6.00, 3.77, 4.84, 4.71, 5.46, 3.87, 4.03],
+    },
+    {
+        name: "New York City",
+        type: 'spline',
+        data: [2.53, 6.87, 4.61, 1.39, 4.15, 4.40, 3.20, 1.76, 2.81, 6.48, 2.03, 5.02],
+    },
+    {
+      name: "Chicago",
+      data: [2, 2, 2.4, 3.7, 4.5, 4.1, 3.7, 4.3, 3.1, 3.3, 2.4, 2.2],
+      },
+      {
+        name: "Los Angeles",
+        data: [3.5, 3.8, 2.3, .9, .4, .1, .1, .1, .2, .5, 1.1, 2.6],
+      }, 
+      {
+        name: "Phoenix",
+        data: [.83, .77, 1.07, .25, .16, .09, .99, .94, .75, .79, .73, .92],
+      },
+      {
+        name: "Philadelphia",
+        data: [3.7, 3, 4.4, 3.8, 3.5, 4.2, 4.9, 5, 4.2, 4.3, 3.3, 4.5],
+      } as any
+  ]
+
+  filteredData = this.chartData.filter(rec => this.selected.includes(rec.name));
 }

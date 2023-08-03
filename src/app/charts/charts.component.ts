@@ -59,6 +59,9 @@ export class ChartsComponent {
          tooltip: {
             valueSuffix: ' $'
          },
+         marker: {
+            enabled: false
+         },
          dashStyle: 'ShortDot',
       }, 
       {
@@ -81,7 +84,10 @@ export class ChartsComponent {
          data: [3.75, 3.68, 3.67, 2.596, 2.82, 2.85, 3.27, 3.23, 3.49, 3.26, 4.58, 4.37],
          tooltip: {
             valueSuffix: ' $'
-         }
+         },
+         marker: {
+            enabled: false
+         },
       }
    ]
   });
@@ -141,9 +147,7 @@ export class ChartsComponent {
         //yAxis: 2,
         data: [81, 84, 86, 81, 75, 79, 84, 82,
                  77, 79, 82, 67],
-        marker: {
-           enabled: false
-        },
+        
         dashStyle: 'ShortDot',
         tooltip: {
            valueSuffix: '\xB0F'

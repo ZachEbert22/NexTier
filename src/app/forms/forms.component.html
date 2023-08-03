@@ -1,32 +1,33 @@
-<div class="dragcomplete" style = "padding:  1% 0% 2% 3%"  >
 
-    <div cdkDropListGroup>
-        <div class="example-container">
-        <h2>Possible Cities</h2>
-    
-        <div
-            cdkDropList
-            [cdkDropListData]="todo"
-            class="example-list"
-            (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+    <div class="dragcomplete" style = "padding:  1% 0% 2% 3%"  >
+
+        <div cdkDropListGroup>
+            <div class="example-container">
+            <h2>Possible Cities</h2>
+        
+            <div
+                cdkDropList
+                [cdkDropListData]="possible"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of possible" cdkDrag>{{item}}</div>
+            </div>
+            </div>
+        
+            <div class="example-container">
+            <h2>Selected</h2>
+        
+            <div
+                cdkDropList
+                [cdkDropListData]="selected"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of selected" cdkDrag>{{item}}</div>
+            </div>
+            </div>
         </div>
-        </div>
-    
-        <div class="example-container">
-        <h2>Selected</h2>
-    
-        <div
-            cdkDropList
-            [cdkDropListData]="done"
-            class="example-list"
-            (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-        </div>
-        </div>
+
+        <div class="line" [chart] = "formsChart" style = "padding:  0% 1% 0% 0%"></div>
     </div>
 
-
-    
-    <div class="line" [chart] = "formsChart" style = "padding:  0% 1% 0% 0%"></div>
-</div>
+<!-- <div [item] ="currentItem"></div> -->
